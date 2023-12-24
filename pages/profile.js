@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "../components/Header";;
 import moment from "moment";
 import { useSelector } from "react-redux";
+import BreadCrumb from "../components/BreadCrumb";
 const Profile = ({ user }) => {
     const userData = useSelector(
       (state) => state.auth.user
@@ -26,7 +27,8 @@ const Profile = ({ user }) => {
   return (
     <>
       <Header />
-      <div className="bg-gray-100 min-h-screen flex flex-col items-center pt-12">
+      <BreadCrumb page='profile'/>
+      <div className="min-h-screen flex flex-col items-center pt-12">
         <div className="max-w-md w-full p-6 text-center  bg-white rounded shadow">
           <div className="text-3xl font-semibold mb-4 text-center">Profile</div>
           <div className="mb-2 items-center justify-center flex">

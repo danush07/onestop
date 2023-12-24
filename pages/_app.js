@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import store from "../store/index";
 import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }) {
   const [hasMounted, setHasMounted] = useState(false);
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
         {hasMounted && (
           <>
             <Component {...pageProps} />
+            <Footer/>
             <ToastContainer />
           </>
         )}

@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { FaReact } from "react-icons/fa6";
+import Link from "next/link";
 export default function Home() {
 
   const state = useSelector((state) => state.user);
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20  ">
+      <div className="px-4  py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20  ">
         <div className="grid gap-10 lg:grid-cols-2 ">
           <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400"></div>
@@ -18,24 +19,28 @@ export default function Home() {
                 We’re changing
                 <br className="hidden md:block" />
                 the way people{" "}
-                <span className="text-transparent  text-5xl bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 bg-clip-text">
+                <span className="text-transparent  text-5xl bg-gradient-to-br from-fuchsia-400 to-indigo-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 bg-clip-text">
                   Connect.
                 </span>
               </h2>
-              <p className="text-gray-700 md:text-lg">
-                <span className="font-bold flex">Next JS</span>{" "}
-                <FaReact className="flex" />
+              <div className="text-gray-700 md:text-lg">
+                <span className="font-bold text-xl ">
+                  Next JS <strong className="text-3xl">🦄</strong>
+                </span>{" "}
                 Web Application with{" "}
-                <span className="font-bold text-green-500">Node JS</span>{" "}
-                Serving as a backend with Numerous Other Technologies Used 🚀
+                <span className="font-bold text-green-500 text-xl">
+                  Node JS
+                </span>{" "}
+                Serving as a backend with Numerous Other Technologies Used{" "}
+                <strong className="text-3xl">🚀</strong>
                 ...
-              </p>
+              </div>
             </div>
             <div>
-              <a
-                href="/"
+              <Link
+                href="/feed"
                 aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="inline-flex items-center font-semibold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-indigo-400 duration-300  "
               >
                 Hop in
                 <svg
@@ -45,7 +50,7 @@ export default function Home() {
                 >
                   <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center justify-center -mx-4 lg:pl-8 ">

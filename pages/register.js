@@ -90,17 +90,16 @@ const CarouselSlide = ({ children }) => (
    if (field === "name" && value.trim() === "") {
      setNameError("Name field cannot be empty");
    } else if (field === "name") {
-     const nameregex = /^[a-zA-Z_ ]{3,25}$/;
+     const nameregex = /^[a-zA-Z_ ]{2,25}$/;
      setNameError(
        !nameregex.test(value.trim())
-         ? "Name must be 5 - 20 Characters and can contain_ "
+         ? "Name must be 2 - 25 Characters and can contain_ "
          : ""
      );
    } else if (field === "email") {
      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
      setEmailError(
-       emailRegex.test(value.trim()) &&
-         value.trim().toLowerCase().includes("@spantechnologyservices.com")
+       emailRegex.test(value.trim()) 
          ? ""
          : "Please enter a valid email address"
      );
@@ -179,7 +178,7 @@ const handleSubmit = (e) => {
               <div className="w-full lg:w-7/12 bg-white dark:bg-white p-5 rounded-lg lg:rounded-l-none">
                 <h3 className="py-4 text-2xl text-center text-gray-800 font-bold dark:text-black">
                   Create{" "}
-                  <span className="text-transparent  text-3xl bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 bg-clip-text">
+                  <span className="text-transparent font-extrabold cursor-pointer  text-3xl bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient bg-clip-text">
                     <Link href="/">One Stop</Link>
                   </span>{" "}
                   Account!
@@ -193,7 +192,6 @@ const handleSubmit = (e) => {
                       accept=".jpg, .jpeg, .png"
                       multiple={false}
                       onDrop={onDrop}
-                    
                     >
                       <p>
                         Drag 'n' drop a profile picture here, or click to select
@@ -209,6 +207,8 @@ const handleSubmit = (e) => {
                       autoComplete="off"
                       maxLength={25}
                       onChange={(e) => setName(e.target.value)}
+                      onBlur={() => validateInput("name", name)}
+                      onFocus={() => setNameError("")}
                       value={name}
                       type="text"
                       id="name"
@@ -224,6 +224,8 @@ const handleSubmit = (e) => {
                       maxLength={50}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      onBlur={() => validateInput("email", email)}
+                      onFocus={() => setEmailError("")}
                       type="email"
                       id="email"
                       className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -241,7 +243,9 @@ const handleSubmit = (e) => {
                         value={password}
                         onChange={(e) => {
                           setPassword(e.target.value);
+                          validateInput("password", e.target.value);
                         }}
+                        onFocus={() => setPasswordError("")}
                         type={type}
                         id="password"
                         className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pr-10"
@@ -254,7 +258,15 @@ const handleSubmit = (e) => {
                       </span>
                     </div>
 
-                    <span className="text-red-500">{passwordError}</span>
+                    {passwordError && passwordError.length > 0 ? (
+                      passwordError.map((error, index) => (
+                        <span key={index} className="text-red-500 block">
+                          {error}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="text-red-500">{passwordError}</span>
+                    )}
                   </div>
                   <div className="mb-2">
                     <div
@@ -267,6 +279,10 @@ const handleSubmit = (e) => {
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       type={confirmType}
+                      onBlur={() =>
+                        validateInput("confirm password", confirmPassword)
+                      }
+                      onFocus={() => setConfirmPasswordError("")}
                       id="confirm password"
                       className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />

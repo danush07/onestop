@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <header className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-50 ">
-      <div className="text-black-600 flex font-bold cursor-pointer">
+      <div className="text-transparent font-extrabold cursor-pointer  text-2xl bg-[linear-gradient(to_right,theme(colors.pink.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient bg-clip-text">
         <Link href="/" className="flex">
           One Stop
         </Link>

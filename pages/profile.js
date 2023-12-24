@@ -46,7 +46,7 @@ const Profile = ({ user }) => {
           
         </div>
       </div>
-      {/* {showPasswordModal && <PasswordModal onClose={closePasswordModal} />} */}
+      
     </>
   );
 };

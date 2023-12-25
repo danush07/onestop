@@ -6,6 +6,7 @@ import ProfileComponent from "../components/ProfileComponent";
 import UploadPost from "../components/UploadPost";
 import Posts from "../components/Posts";
 
+
 function FeedPage() {
   return (
     <>
@@ -13,12 +14,12 @@ function FeedPage() {
         <Header />
         <BreadCrumb page="feed" />
       </div>
-      <div className="grid  md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <div>
+      <div className="grid  md:grid-cols-3 lg:grid-cols-3">
+        <div className="ml-24 mt-2 col-span-2">
           <UploadPost />
           <Posts />
         </div>
-        <div className=" justify-self-end ">
+        <div className=" justify-self-end mt-2  mr-24">
           <ProfileComponent />
           <AddFriends />
         </div>

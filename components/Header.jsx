@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import LogoutModal from "./LogoutModal"; 
+import Image from "next/image";
 
 function Header() {
   const [showLogout, setShowLogout] = useState(false);
@@ -27,13 +28,15 @@ function Header() {
         {user ? (
           <>
             <Link href="/profile">
-              <div className="relative inline-flex items-center justify-center w-10 h-10 mr-6 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-600 hover:bg-gray-300 transition duration-500 ease select-none">
+              <div className="relative flex items-center justify-center w-10 h-10 mr-6 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-600 hover:bg-gray-300 transition duration-500 ease select-none">
                 <span className="font-medium text-xl text-gray-600 dark:text-gray-300">
-                  <img
+                  <Image
                     src={`http://localhost:5000/assets/${user.picturePath}`}
-                    className="w-10 h-10 rounded"
+                    className="w-10 h-10 object-cover rounded"
                     alt="Profile"
-                  ></img>
+                    width={10}
+                    height={10}
+                  ></Image>
                 </span>
               </div>
             </Link>
@@ -50,7 +53,6 @@ function Header() {
           <>
             <li className="block">
               {" "}
-              {/* Show on small screens only */}
               <Link href="/login" className="text-center">
                 <button className=" bg-slate-50 text-gray-700 rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline">
                   <FaSignInAlt className="inline-flex mb-1 mr-1 items-baseline" />
@@ -60,7 +62,6 @@ function Header() {
             </li>
             <li className="block ">
               {" "}
-              {/* Show on small screens only */}
               <Link href="/register">
                 <button className=" bg-slate-50 text-gray-700 rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-gray-300 focus:outline-none focus:shadow-outline">
                   <FaUser className="inline-flex font-semibold items-baseline mr-1 mb-1" />

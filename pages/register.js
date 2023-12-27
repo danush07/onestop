@@ -139,7 +139,7 @@ const handleSubmit = (e) => {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("picture", profilePicture);
-    console.log(formData);
+    // console.log(formData);
     dispatch(register(formData));
   }
 };
@@ -147,7 +147,10 @@ const handleSubmit = (e) => {
 
   return (
     <div>
-      <div className=" min-h-screen sm:h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100">
+      <div
+        style={{ height: "100%" }}
+        className=" min-h-screen sm:h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100"
+      >
         <div className="mx-auto  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-200 via-red-200 to-yellow-100">
           <div className="flex justify-center px-6 py-12 ">
             <div className="w-full xl:w-3/4 lg:w-11/12 flex ">

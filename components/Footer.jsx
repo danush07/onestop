@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin,FaInstagram } from "react-icons/fa";
-
+import { useSelector } from "react-redux";
+import Router from "next/router";
 function Footer() {
-  return (
+  const user = useSelector((state) => state.auth.user);
+  return user ? ( 
     <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
@@ -42,8 +44,9 @@ function Footer() {
           by Danush
         </span>
       </div>
-    </footer>
-  );
+      </footer>
+      
+      ):null
 }
 
 export default Footer;

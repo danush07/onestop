@@ -5,9 +5,10 @@ import { LuMessagesSquare } from "react-icons/lu";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllPostsAsync } from "../features/posts/postSlice";
 import moment from "moment";
-
+import { useRouter } from "next/navigation";
 function Posts() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const user = useSelector((state) => state.auth.user);
   const posts = useSelector((state) => state.feed.allPosts);
   console.log(posts);
@@ -20,6 +21,9 @@ function Posts() {
   const handleLikeClick = () => {
     setLiked((prevLiked) => !prevLiked);
   };
+  const handleUserClick = (id) => {
+    router.push('/profile/' + id);
+  }
 
   return (
     <div>
@@ -35,7 +39,7 @@ function Posts() {
                 src={`http://localhost:5000/assets/${post?.userPicturePath}`}
                 alt="profile picture"
               />
-              <div className="ml-3 text-lg">{post.name}</div>
+              <div onClick={()=>handleUserClick(post.userId)} className="ml-3 text-lg">{post.name}</div>
             </div>
             <span className="text-xs text-gray-500">
               {moment(post.createdAt).format("LLL")}

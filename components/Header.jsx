@@ -30,13 +30,12 @@ function Header() {
             <Link href="/profile">
               <div className="relative flex items-center justify-center w-10 h-10 mr-6 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-600 hover:bg-gray-300 transition duration-500 ease select-none">
                 <span className="font-medium text-xl text-gray-600 dark:text-gray-300">
-                  <Image
+                  <img
                     src={`http://localhost:5000/assets/${user.picturePath}`}
                     className="w-10 h-10 object-cover rounded"
                     alt="Profile"
-                    width={10}
-                    height={10}
-                  ></Image>
+                   
+                  ></img>
                 </span>
               </div>
             </Link>

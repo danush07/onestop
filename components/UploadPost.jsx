@@ -17,9 +17,7 @@ function UploadPost() {
   return (
     <div className="flex p-2 gap-3 items-center bg-white border mb-3  border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div>
-        <Image
-          width={11}
-          height={10}
+        <img
           className=" w-11 h-10 object-cover rounded-full "
           src={`http://localhost:5000/assets/${user?.picturePath}`}
           alt="profile picture"
